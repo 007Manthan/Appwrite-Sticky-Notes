@@ -5,7 +5,7 @@ const db = {}
 
 collections.forEach((collection) => {
   db[collection.name] = {
-    create: async (payload, id = ID.unique()) => {
+    create: async (id, payload = ID.unique()) => {
       return await databases.createDocument(
         collection.dbId,
         collection.colId,
@@ -13,7 +13,7 @@ collections.forEach((collection) => {
         payload
       )
     },
-    update: async (payload, id) => {
+    update: async (id, payload) => {
       return await databases.updateDocument(
         collection.dbId,
         collection.colId,
