@@ -5,7 +5,7 @@ const db = {}
 
 collections.forEach((collection) => {
   db[collection.name] = {
-    create: async (id, payload = ID.unique()) => {
+    create: async (payload, id = ID.unique()) => {
       return await databases.createDocument(
         collection.dbId,
         collection.colId,
